@@ -1,6 +1,6 @@
 Package: targetAge
 Type: Package
-Title: What the package does (short line)
+Title: Predict target age given a text
 Version: 1.0
 Date: 2018-11-09
 Author: Who wrote it
