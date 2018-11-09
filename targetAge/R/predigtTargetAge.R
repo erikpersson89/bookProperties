@@ -1,20 +1,21 @@
 #' @title         predictTargetAge
-#' @description   A function that predicts target age of a text
+#' @description   A function that predicts target age of a book
 #' @import        MASS
 #' @param         book Stagger tagged book
 #' @param         genre Book genre
 #' @param         path_models Path to folder where glm models are stored
 #' @param         path_genre_prop Path to folder where genre probabilities are stored
+#' @param         language Book language 
 #' @return        Returns a predicted target age
 #' @export
 
-predictTargetAge <- function(book, genre, path_models, path_genre_prop) {
+predictTargetAge <- function(book, genre, path_models, path_genre_prop, language) {
   
   target_groups = c("0 till 3 år", "3 till 6 år", "6 till 9 år", "9 till 12 år", 
                     "Ungdom", "Nästan vuxen", "Vuxen")
   
 # Get distribution of probabilities ---------------------------------------
-  path_prob = paste(path_genre_prop, "/prob_genre_norm.csv", sep = "")
+  path_prob = paste(path_genre_prop, "/target_age_genre_prob_", language, ".csv", sep = "")
   prob_genre_norm = read.csv(file = path_prob, encoding = "UTF-8") 
   genres = as.character(prob_genre_norm$X)
   prob_genre_norm = prob_genre_norm[,2:8]
@@ -22,11 +23,11 @@ predictTargetAge <- function(book, genre, path_models, path_genre_prop) {
   rownames(prob_genre_norm) = genres
   
 # Get models --------------------------------------------------------------
-  path_model_child = paste(path_models, "/model_child.rds", sep = "")  
-  path_model_class = paste(path_models, "/model_class.rds", sep = "") 
-  path_model_fan = paste(path_models, "/model_fan.rds", sep = "") 
-  path_model_teen = paste(path_models, "/model_teen.rds", sep = "") 
-  path_model_all = paste(path_models, "/model_all.rds", sep = "") 
+  path_model_child = paste(path_models, "/target_age_model_child_", language, ".rds", sep = "")  
+  path_model_class = paste(path_models, "/target_age_model_classics_", language, ".rds", sep = "") 
+  path_model_fan = paste(path_models, "/target_age_model_fantasy_", language, ".rds", sep = "") 
+  path_model_teen = paste(path_models, "/target_age_model_teen_", language, ".rds", sep = "") 
+  path_model_all = paste(path_models, "/target_age_model_all_", language, ".rds", sep = "") 
   model_child = readRDS(file = path_model_child, refhook = NULL)
   model_class = readRDS(file = path_model_class, refhook = NULL)
   model_fan = readRDS(file = path_model_fan, refhook = NULL)
