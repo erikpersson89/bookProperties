@@ -4,7 +4,7 @@
 \alias{predictTargetAge}
 \title{predictTargetAge}
 \usage{
-predictTargetAge(book, genre, path_models, path_genre_prop)
+predictTargetAge(book, genre, path_models, path_genre_prop, language)
 }
 \arguments{
 \item{book}{Stagger tagged book}
@@ -14,10 +14,12 @@ predictTargetAge(book, genre, path_models, path_genre_prop)
 \item{path_models}{Path to folder where glm models are stored}
 
 \item{path_genre_prop}{Path to folder where genre probabilities are stored}
+
+\item{language}{Book language}
 }
 \value{
 Returns a predicted target age
 }
 \description{
-A function that predicts target age of a text
+A function that predicts target age of a book
 }
