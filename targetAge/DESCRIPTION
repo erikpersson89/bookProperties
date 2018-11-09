@@ -5,6 +5,6 @@ Version: 1.0
 Date: 2018-11-09
 Author: Erik Persson <erik.persson@storytel.com>
 Maintainer: Erik Persson <erik.persson@storytel.com>
-Description: Predict target age given a text
+Description: Predict target age given a text. Input: text, genre
 License: What license is it under?
 RoxygenNote: 6.1.0
