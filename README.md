@@ -1,6 +1,6 @@
 # targetAge
 
-Predict target age given a text
+Predict target age for a book
 
 To download and install the package, use:
 ```{r}
