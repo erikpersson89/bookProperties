@@ -50,11 +50,11 @@ predictTargetAge <- function(book, genre, path_models, path_genre_prop) {
   O = length(words) #Number of words
   L = sum(nchar(words) > 6)
   LIX = O/M + (L*100/O)
-  targets$N_words[k] = O
-  targets$N_unique_words[k] = length(unique(words))
-  targets$N_long_words[k] = L
-  targets$N_sentences[k] = M
-  targets$LIX[k] = LIX
+  targets$N_words = O
+  targets$N_unique_words = length(unique(words))
+  targets$N_long_words = L
+  targets$N_sentences = M
+  targets$LIX = LIX
 
   
   # Predict target age groups  ----------------------------------------------
@@ -62,34 +62,34 @@ predictTargetAge <- function(book, genre, path_models, path_genre_prop) {
   predicted_class = c()
   certainty = c()
   if (genre == "Barn") {
-    predictions[k,] = as.numeric(predict(model_child, targets[k,], type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
-    predictions[k,] = predictions[k,] / sum(predictions[k,])
-    predicted_class[k] = target_groups[which(predictions[k,] == max(predictions[k,]))]
-    certainty[k] = max(predictions[k,])
+    predictions = as.numeric(predict(model_child, targets, type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
+    predictions = predictions/sum(predictions)
+    predicted_class = target_groups[which(predictions == max(predictions))]
+    certainty = max(predictions)
   } else if (genre == "Fantasy & SciFi") {
-    predictions[k,] = as.numeric(predict(model_fan, targets[k,], type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
-    predictions[k,] = predictions[k,] / sum(predictions[k,])
-    predicted_class[k] = target_groups[which(predictions[k,] == max(predictions[k,]))]
-    certainty[k] = max(predictions[k,])
+    predictions = as.numeric(predict(model_fan, targets, type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
+    predictions = predictions/sum(predictions)
+    predicted_class = target_groups[which(predictions == max(predictions))]
+    certainty = max(predictions)
   } else if (genre == "Klassiker") {
-    predictions[k,] = as.numeric(predict(model_class, targets[k,], type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
-    predictions[k,] = predictions[k,] / sum(predictions[k,])
-    predicted_class[k] = target_groups[which(predictions[k,] == max(predictions[k,]))]
-    certainty[k] = max(predictions[k,])
+    predictions = as.numeric(predict(model_class, targets, type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
+    predictions = predictions/ sum(predictions)
+    predicted_class = target_groups[which(predictions == max(predictions))]
+    certainty = max(predictions)
   } else if (genre == "Tonår & Nästan vuxen") {
-    predictions[k,] = as.numeric(predict(model_teen, targets[k,], type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
-    predictions[k,] = predictions[k,] / sum(predictions[k,])
-    predicted_class[k] = target_groups[which(predictions[k,] == max(predictions[k,]))]
-    certainty[k] = max(predictions[k,])
+    predictions = as.numeric(predict(model_teen, targets, type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
+    predictions = predictions/sum(predictions)
+    predicted_class = target_groups[which(predictions == max(predictions))]
+    certainty = max(predictions)
   } else if (sum(genre == rownames(prob_genre_norm)) > 0 && genre != "Barn" && genre != "Fantasy & SciFi" &&
              genre != "Klassiker" && genre != "Tonår & Nästan vuxen") {
-    predictions[k,] = as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
-    predictions[k,] = predictions[k,] / sum(predictions[k,])
-    predicted_class[k] = target_groups[which(predictions[k,] == max(predictions[k,]))]
-    certainty[k] = max(predictions[k,])
+    predictions = as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
+    predictions = predictions/sum(predictions)
+    predicted_class = target_groups[which(predictions == max(predictions))]
+    certainty = max(predictions)
   }
-  targets$tag_ai[k] = predicted_class[k]
-  targets$certainty[k] = certainty[k]
+  targets$tag_ai = predicted_class
+  targets$certainty = certainty
 
   return(targets)
   
