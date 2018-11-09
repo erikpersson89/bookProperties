@@ -57,45 +57,40 @@ predictTargetAge <- function(book, genre, path_models, path_genre_prop) {
   targets$LIX[k] = LIX
 
   
-  # # Predict target age groups  ----------------------------------------------
-  # predictions = matrix(nrow = N_books, ncol = 7)
-  # predicted_class = c()
-  # certainty = c()
-  # e = 0
-  # for (k in 1:N_books) {
-  #   isbn = targets$ISBN[k]
-  #   genre = book_meta_data$GENRE[book_meta_data$ISBN == isbn]  
-  #   if (genre == "Barn") {
-  #     predictions[k,] = as.numeric(predict(model_child, targets[k,], type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
-  #     predictions[k,] = predictions[k,] / sum(predictions[k,])
-  #     predicted_class[k] = target_groups[which(predictions[k,] == max(predictions[k,]))] 
-  #     certainty[k] = max(predictions[k,])
-  #   } else if (genre == "Fantasy & SciFi") {
-  #     predictions[k,] = as.numeric(predict(model_fan, targets[k,], type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
-  #     predictions[k,] = predictions[k,] / sum(predictions[k,])
-  #     predicted_class[k] = target_groups[which(predictions[k,] == max(predictions[k,]))] 
-  #     certainty[k] = max(predictions[k,])
-  #   } else if (genre == "Klassiker") {
-  #     predictions[k,] = as.numeric(predict(model_class, targets[k,], type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
-  #     predictions[k,] = predictions[k,] / sum(predictions[k,])
-  #     predicted_class[k] = target_groups[which(predictions[k,] == max(predictions[k,]))] 
-  #     certainty[k] = max(predictions[k,])
-  #   } else if (genre == "Tonår & Nästan vuxen") {
-  #     predictions[k,] = as.numeric(predict(model_teen, targets[k,], type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
-  #     predictions[k,] = predictions[k,] / sum(predictions[k,])
-  #     predicted_class[k] = target_groups[which(predictions[k,] == max(predictions[k,]))] 
-  #     certainty[k] = max(predictions[k,])
-  #   } else if (sum(genre == rownames(prob_genre_norm)) > 0 && genre != "Barn" && genre != "Fantasy & SciFi" && 
-  #              genre != "Klassiker" && genre != "Tonår & Nästan vuxen") {
-  #     predictions[k,] = as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
-  #     predictions[k,] = predictions[k,] / sum(predictions[k,])
-  #     predicted_class[k] = target_groups[which(predictions[k,] == max(predictions[k,]))] 
-  #     certainty[k] = max(predictions[k,])
-  #   }
-  #   targets$tag_ai[k] = predicted_class[k]
-  #   targets$certainty[k] = certainty[k]  
-  # }
-  
+  # Predict target age groups  ----------------------------------------------
+  predictions = matrix(nrow = 1, ncol = 7)
+  predicted_class = c()
+  certainty = c()
+  if (genre == "Barn") {
+    predictions[k,] = as.numeric(predict(model_child, targets[k,], type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
+    predictions[k,] = predictions[k,] / sum(predictions[k,])
+    predicted_class[k] = target_groups[which(predictions[k,] == max(predictions[k,]))]
+    certainty[k] = max(predictions[k,])
+  } else if (genre == "Fantasy & SciFi") {
+    predictions[k,] = as.numeric(predict(model_fan, targets[k,], type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
+    predictions[k,] = predictions[k,] / sum(predictions[k,])
+    predicted_class[k] = target_groups[which(predictions[k,] == max(predictions[k,]))]
+    certainty[k] = max(predictions[k,])
+  } else if (genre == "Klassiker") {
+    predictions[k,] = as.numeric(predict(model_class, targets[k,], type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
+    predictions[k,] = predictions[k,] / sum(predictions[k,])
+    predicted_class[k] = target_groups[which(predictions[k,] == max(predictions[k,]))]
+    certainty[k] = max(predictions[k,])
+  } else if (genre == "Tonår & Nästan vuxen") {
+    predictions[k,] = as.numeric(predict(model_teen, targets[k,], type = "p")) * as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
+    predictions[k,] = predictions[k,] / sum(predictions[k,])
+    predicted_class[k] = target_groups[which(predictions[k,] == max(predictions[k,]))]
+    certainty[k] = max(predictions[k,])
+  } else if (sum(genre == rownames(prob_genre_norm)) > 0 && genre != "Barn" && genre != "Fantasy & SciFi" &&
+             genre != "Klassiker" && genre != "Tonår & Nästan vuxen") {
+    predictions[k,] = as.numeric(prob_genre_norm[genre == rownames(prob_genre_norm),])
+    predictions[k,] = predictions[k,] / sum(predictions[k,])
+    predicted_class[k] = target_groups[which(predictions[k,] == max(predictions[k,]))]
+    certainty[k] = max(predictions[k,])
+  }
+  targets$tag_ai[k] = predicted_class[k]
+  targets$certainty[k] = certainty[k]
+
   return(targets)
   
 }
