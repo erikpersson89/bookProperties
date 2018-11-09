@@ -50,7 +50,6 @@ predictTargetAge <- function(book, genre, path_models, path_genre_prop) {
   O = length(words) #Number of words
   L = sum(nchar(words) > 6)
   LIX = O/M + (L*100/O)
-  targets$ISBN[k] = isbn
   targets$N_words[k] = O
   targets$N_unique_words[k] = length(unique(words))
   targets$N_long_words[k] = L
