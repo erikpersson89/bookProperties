@@ -68,6 +68,8 @@ extractFeelings <- function(text, path_sentiment_lexicon, language) {
     SCORE = NA
   }
   
+  feeling_df = as.data.frame(c(FEELING, SCORE))
+  names(feelings_df) = c("FEELING", "SCORE")
   return(c(FEELING, SCORE))
   
 }
