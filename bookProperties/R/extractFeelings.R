@@ -1,6 +1,6 @@
 #' @title         extractFeelings
 #' @description   A function that predicts the feelings of a text
-#' @import        xlsx
+#' @import        MASS
 #' @param         text Character vector with text
 #' @param         path_sentiment_lexicon Path to folder where sentiment lexicon is stored
 #' @param         language Book language 
