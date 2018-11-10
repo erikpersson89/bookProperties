@@ -1,5 +1,5 @@
 #' @title         predictTargetAge
-#' @description   A function that predicts target age of a book
+#' @description   A function that predicts the target age of a book
 #' @import        MASS
 #' @param         book Stagger tagged book
 #' @param         genre Book genre

@@ -1,10 +1,10 @@
-Package: targetAge
+Package: bookProperties
 Type: Package
-Title: Predict target age given a text
+Title: Extract features from text
 Version: 1.0
 Date: 2018-11-09
 Author: Erik Persson <erik.persson@storytel.com>
 Maintainer: Erik Persson <erik.persson@storytel.com>
-Description: Predict target age given a text. Input: text, genre
+Description: Extract features from text. Available functions: predictTargetAge. Available languages: Swedish (sv)
 License: What license is it under?
 RoxygenNote: 6.1.0

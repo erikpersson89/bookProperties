@@ -1,15 +1,16 @@
-# targetAge
+# bookProperties
 
-Predict target age for a book
+Extract properties from a book
 
 To download and install the package, use:
 ```{r}
-devtools::install_github("erikpersson89/targetAge", subdir = "targetAge")
+devtools::install_github("erikpersson89/bookProperties", subdir = "bookProperties")
 ```
 # Requirements
 * R
 
-# Usage
-```{r}
-target_age = predictTargetAge(book, genre, path_models, path_genre_prop, language)
-```
+# Available functions
+* predictTargetAge
+
+# Available languages
+* Swedish (sv)
