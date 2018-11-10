@@ -21,5 +21,5 @@ predictTargetAge(book, genre, path_models, path_genre_prop, language)
 Returns a predicted target age
 }
 \description{
-A function that predicts target age of a book
+A function that predicts the target age of a book
 }

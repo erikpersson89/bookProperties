@@ -1,24 +1,24 @@
-\name{targetAge-package}
-\alias{targetAge-package}
-\alias{targetAge}
+\name{bookProperties-package}
+\alias{bookProperties-package}
+\alias{bookProperties}
 \docType{package}
 \title{
-\packageTitle{targetAge}
+\packageTitle{bookProperties}
 }
 \description{
-\packageDescription{targetAge}
+\packageDescription{bookProperties}
 }
 \details{
 
 The DESCRIPTION file:
-\packageDESCRIPTION{targetAge}
-\packageIndices{targetAge}
+\packageDESCRIPTION{bookProperties}
+\packageIndices{bookProperties}
 ~~ An overview of how to use the package, including the most important functions ~~
 }
 \author{
-\packageAuthor{targetAge}
+\packageAuthor{bookProperties}
 
-Maintainer: \packageMaintainer{targetAge}
+Maintainer: \packageMaintainer{bookProperties}
 }
 \references{
 ~~ Literature or other references for background information ~~
