@@ -54,22 +54,18 @@ extractFeelings <- function(text, path_sentiment_lexicon, language) {
     scores_r = 0
   }
   
+  feelings_df = as.data.frame(matrix(nrow = 1, ncol = 2))
+  names(feelings_df) = c("FEELING", "SCORE")
   if (length(feeling_scores) > 0) {
     for (s in 1:length(feeling_scores)) {
-      FEELING = names(feeling_scores)[s]
-      SCORE = feeling_scores[s]
-      if (!is.null(FEELING)) {
-        FEELING = FEELING
-        SCORE = as.numeric(SCORE)
-      } 
+      feelings_df[s,1] = names(feeling_scores)[s]
+      feelings_df[s,2] = feeling_scores[s]
     }
   } else {
-    FEELING = NA
-    SCORE = NA
+    feelings_df[1,1] = NA
+    feelings_df[1,2] = NA
   }
   
-  feeling_df = as.data.frame(c(FEELING, SCORE))
-  names(feelings_df) = c("FEELING", "SCORE")
-  return(c(FEELING, SCORE))
+  return(feelings_df)
   
 }
