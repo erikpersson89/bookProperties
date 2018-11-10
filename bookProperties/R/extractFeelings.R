@@ -68,6 +68,6 @@ extractFeelings <- function(text, path_sentiment_lexicon, language) {
     SCORE = NA
   }
   
-  return(FEELING, SCORE)
+  return(c(FEELING, SCORE))
   
 }
