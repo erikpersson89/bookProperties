@@ -6,11 +6,11 @@ To download and install the package, use:
 ```{r}
 devtools::install_github("erikpersson89/bookProperties", subdir = "bookProperties")
 ```
-# Requirements
+## Requirements
 * R
 
-# Available functions
+## Available functions
 * predictTargetAge
 
-# Available languages
+## Available languages
 * Swedish (sv)
