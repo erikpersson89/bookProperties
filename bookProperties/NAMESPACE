@@ -3,5 +3,6 @@
 export(extractFeelings)
 export(extractLocations)
 export(predictTargetAge)
+export(suggestFeelingsBasedOnGenre)
 export(suggestSynonymEmotions)
 import(MASS)
