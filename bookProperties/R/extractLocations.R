@@ -9,7 +9,7 @@
 
 extractLocations <- function(book, path_geo, language) {
   
-  # Import geo data ---------------------------------------------------------
+  # Import geographical data ---------------------------------------------------------
   path = paste(path_geo, "/geo_", language, ".csv", sep = "")
   geo = read.csv(file = path, encoding = "UTF-8")
   geo$City = as.character(geo$City)
