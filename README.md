@@ -12,6 +12,9 @@ devtools::install_github("erikpersson89/bookProperties", subdir = "bookPropertie
 ## Available functions
 * predictTargetAge
 * extractLocations
+* extractFeelings
+* suggestSynonymEmotions
+* suggestEmotionsBasedOnGenre
 
 ## Available languages
 * Swedish (sv)
