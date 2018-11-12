@@ -11,7 +11,7 @@
 \author{
 \packageAuthor{bookProperties}
 
-Maintainer: \packageMaintainer{bookProperties}
+\packageMaintainer{bookProperties}
 }
 
 \keyword{NLP}
