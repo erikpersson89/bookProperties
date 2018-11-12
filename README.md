@@ -5,6 +5,7 @@ Extract properties from a book
 To download and install the package, use:
 ```{r}
 devtools::install_github("erikpersson89/bookProperties", subdir = "bookProperties")
+library(bookProperties)
 ```
 ## Requirements
 * R
@@ -15,6 +16,8 @@ devtools::install_github("erikpersson89/bookProperties", subdir = "bookPropertie
 * extractFeelings
 * suggestSynonymEmotions
 * suggestEmotionsBasedOnGenre
+* suggestSubGenres
 
 ## Available languages
 * Swedish (sv)
+
