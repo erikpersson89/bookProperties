@@ -11,6 +11,8 @@
 
 predictTargetAge <- function(genre, path_models, path_genre_prop, readability, language) {
   
+  # JUST USE ENGLISH NAMES
+  
   # Get names from target_age_genre_prob instead
   target_groups = c("0 to 3 years", "3 to 6 years", "6 to 9 years", "9 to 12 years", 
                     "Youth", "Young adult", "Adult")
