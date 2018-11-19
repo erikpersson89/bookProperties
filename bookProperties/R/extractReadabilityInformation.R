@@ -4,11 +4,12 @@
 #' @param         book Stagger tagged book
 #' @param         path_models Path to folder where glm models are stored
 #' @param         path_genre_prop Path to folder where genre probabilities are stored
+#' @param         readability Vector containing N_words, N_unique_words, N_long_words, N_sentences, LIX
 #' @param         language Book language 
 #' @return        Returns a vector with readability information, such as number of words and LIX
 #' @export
 
-extractReadabilityInformation <- function(book, genre, path_models, path_genre_prop, language) {
+extractReadabilityInformation <- function(book, genre, path_models, path_genre_prop, readability, language) {
   
   # Calculate LIX score  -----------------------------------------------------
   readability = as.data.frame(matrix(nrow = 1, ncol = 5))
