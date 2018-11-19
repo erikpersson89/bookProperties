@@ -17,6 +17,8 @@ library(bookProperties)
 * suggestSynonymEmotions
 * suggestEmotionsBasedOnGenre
 * suggestSubGenres
+* extractCharacters
+* extractReadabilityInformation
 
 ## Available languages
 * Swedish (sv)
