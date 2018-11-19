@@ -1,7 +1,6 @@
 #' @title         predictTargetAge
 #' @description   A function that predicts the target age of a book
 #' @import        MASS
-#' @param         book Stagger tagged book
 #' @param         genre Book genre
 #' @param         path_models Path to folder where glm models are stored
 #' @param         path_genre_prop Path to folder where genre probabilities are stored
@@ -10,7 +9,7 @@
 #' @return        Returns a predicted target age
 #' @export
 
-predictTargetAge <- function(book, genre, path_models, path_genre_prop, language) {
+predictTargetAge <- function(genre, path_models, path_genre_prop, readability, language) {
   
   # Get names from target_age_genre_prob instead
   target_groups = c("0 to 3 years", "3 to 6 years", "6 to 9 years", "9 to 12 years", 
