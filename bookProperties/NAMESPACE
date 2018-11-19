@@ -3,6 +3,7 @@
 export(extractCharacters)
 export(extractFeelings)
 export(extractLocations)
+export(extractReadabilityInformation)
 export(predictTargetAge)
 export(suggestFeelingsBasedOnGenre)
 export(suggestSubGenres)
