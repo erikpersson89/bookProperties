@@ -16,6 +16,8 @@ predictTargetAge(book, genre, path_models, path_genre_prop, language)
 \item{path_genre_prop}{Path to folder where genre probabilities are stored}
 
 \item{language}{Book language}
+
+\item{readability}{Vector with: N_words, N_unique_words, N_long_words, N_sentences, LIX}
 }
 \value{
 Returns a predicted target age

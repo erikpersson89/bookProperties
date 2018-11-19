@@ -5,6 +5,7 @@
 #' @param         genre Book genre
 #' @param         path_models Path to folder where glm models are stored
 #' @param         path_genre_prop Path to folder where genre probabilities are stored
+#' @param         readability Vector with: N_words, N_unique_words, N_long_words, N_sentences, LIX
 #' @param         language Book language 
 #' @return        Returns a predicted target age
 #' @export

@@ -4,8 +4,7 @@
 \alias{extractReadabilityInformation}
 \title{extractReadabilityInformation}
 \usage{
-extractReadabilityInformation(book, genre, path_models, path_genre_prop,
-  readability, language)
+extractReadabilityInformation(book, path_models, path_genre_prop, language)
 }
 \arguments{
 \item{book}{Stagger tagged book}
@@ -13,8 +12,6 @@ extractReadabilityInformation(book, genre, path_models, path_genre_prop,
 \item{path_models}{Path to folder where glm models are stored}
 
 \item{path_genre_prop}{Path to folder where genre probabilities are stored}
-
-\item{readability}{Vector containing N_words, N_unique_words, N_long_words, N_sentences, LIX}
 
 \item{language}{Book language}
 }
