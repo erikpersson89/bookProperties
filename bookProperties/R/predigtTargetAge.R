@@ -11,8 +11,8 @@
 
 predictTargetAge <- function(book, genre, path_models, path_genre_prop, language) {
   
-  target_groups = c("0 till 3 år", "3 till 6 år", "6 till 9 år", "9 till 12 år", 
-                    "Ungdom", "Nästan vuxen", "Vuxen")
+  target_groups = c("0 to 3 years", "3 to 6 years", "6 to 9 years", "9 to 12 years", 
+                    "Youth", "Young adult", "Adult")
   
 # Get distribution of probabilities ---------------------------------------
   path_prob = paste(path_genre_prop, "/target_age_genre_prob_", language, ".csv", sep = "")
